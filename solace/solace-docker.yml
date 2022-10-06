@@ -1,0 +1,26 @@
+# docker-compose -f solace-docker.yml up
+# Make sure to be logged in Docker Hub
+version: '3.3'
+services:
+  ## Solace ##
+  primary:
+    container_name: solace
+    restart: always
+    image: solace/solace-pubsub-standard:latest
+    shm_size: 1g
+    ulimits:
+      core: 1
+      nofile:
+        soft: 2448
+        hard: 38048
+    deploy:
+      restart_policy:
+        condition: on-failure
+        max_attempts: 1
+    ports:
+      - '8088:8080'
+      - '55554:55555'
+    environment:
+      - username_admin_globalaccesslevel=admin
+      - username_admin_password=IJnQc4mASn
+      - system_scaling_maxconnectioncount=100
