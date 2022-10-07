@@ -1,0 +1,7 @@
+spring:
+    port:8080
+
+ooclTopicName: OOCL/TOPIC_1
+cargoSpecQueueName: CARGO_SPEC/PROCESSING/NEW
+packageQueueName: PACKAGE_DESC/PROCESSING/NEW
+packageExceptionQueueName: PACKAGE_DESC/PROCESSING/EXCEPTION
